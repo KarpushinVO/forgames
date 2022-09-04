@@ -1,0 +1,21 @@
+x_axis = int(input())
+y_axis = int(input())
+print(f'start coordinates: ({x_axis}, {y_axis})')
+d = ''
+while d != 'stop':
+    
+    d = input()
+    if  d == 'stop':
+        print(f'direction: {d}')
+        break
+    print(f'direction: {d}')
+    if d == 'up':
+        y_axis += 1
+    elif d == 'down':
+        y_axis -= 1
+    elif d == 'left':
+        x_axis -= 1
+    elif d == 'right':
+        x_axis += 1
+    print(f'({x_axis}, {y_axis})')
+print(f'final coordinates: ({x_axis}, {y_axis})')
