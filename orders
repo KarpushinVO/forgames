@@ -1,0 +1,27 @@
+#Принимаем информацию о складе
+n = [i for i in input().split()]
+#Формируем список товаров
+good = [i for i in n if i.isalpha() == True]
+#Формируем список количества каждого товара
+amount = [int(i) for i in n if i.isdigit() == True]
+#Делаем словарь (список товаров - ключи, количество товара - значение)
+store = []
+for i in range(len(good)):
+    pusto = (good[i], amount[i])
+    store.append(pusto)
+d = dict(store)
+#Цикл работающий с заказами и складами
+while True:
+    s = input().split()
+    if s[0] == 'end':
+        break
+    s[2] = int(s[2])
+    #Заказ вообще есть на складе?
+    if s[1] in d:
+        if d[s[1]] >= int(s[2]):
+            print(f'{s[0]} completed')
+            d[s[1]] -= int(s[2])
+        elif d[s[1]] < int(s[2]):
+            print(f'{s[0]} canceled')
+    else:
+        print(f'{s[0]} canceled')
