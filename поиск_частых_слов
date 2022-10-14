@@ -1,0 +1,21 @@
+n = input().lower().split()
+words = list(set(n))
+countALL = []
+library = []
+for i in words:
+    countALL.append((n.count(i)))
+for i in range(len(words)):
+    pusto = (words[i], countALL[i])
+    library.append(pusto)
+d = dict(library)
+maximus_1 = max(d.values())
+#print(*[key for (key, value) in d.items() if value == max(d.values())])
+for key, value in d.items():
+    if value == maximus_1:
+        print(key)
+        d[key] = '-'
+        for key_new , value_new in d.items():
+            if value_new == maximus_1:
+                print(key_new)
+                d[key_new] = '-'
+                
